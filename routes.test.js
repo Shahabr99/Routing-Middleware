@@ -43,3 +43,12 @@ describe("PATCH /items/:name", function() {
     expect(resp.body).toEqual({update: {name: "civic", price: 12000}})
   })
 })
+
+
+describe("DELETE /items/:name", function() {
+  test("Deletes a specific item from database", async function() {
+    const resp = await request(app).delete("/items/infiniti")
+    expect(resp.statusCode).toEqual(200)
+    expect(resp.body).toEqual({"message": "deleted"})
+  })
+})
