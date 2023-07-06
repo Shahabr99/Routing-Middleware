@@ -1,6 +1,6 @@
 
 // we need to set up the environment. We have three option of production, development and test.
-Process.env.NODE_ENV = "test";
+process.env.NODE_ENV = "test";
 
 const app = require("./app");
 const request = require("supertest");
@@ -23,7 +23,7 @@ describe("GET /items", function () {
   test("gets all the items", async function () {
     const resp = await request(app).get(`/items`);
     expect(resp.statusCode).toEqual(200);
-    expect(resp.body).toEqual([{ "name": "mop", "price": 22.5 }]);
+    expect(resp.body).toEqual([{ "name": "infiniti", "price": 12000 }]);
   });
 });
 
@@ -35,3 +35,11 @@ describe("POST /items", function() {
   })
 })
 
+
+describe("PATCH /items/:name", function() {
+  test("Updates the information of an item", async function() {
+    const resp = await request(app).patch("/items/infiniti").send({"name": "civic"})
+    expect(resp.statusCode).toEqual(200)
+    expect(resp.body).toEqual({update: {name: "civic", price: 12000}})
+  })
+})

@@ -27,15 +27,18 @@ router.get("/:name", function (req, res) {
 // Updating info of an item
 router.patch("/:name", function (req, res) {
   const item = req.params.name;
-  const data = req.body;
+  const data = req.body.name;
   items.find((el) => {
     if (el.name === item) {
+      
       el.name = data;
     }
     return res.json({ update: el });
   });
 });
 
+
+// Deleting an item from fake database
 router.delete("/:name", function (req, res) {
   const val = req.params.name;
 
