@@ -4,6 +4,9 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "supertest": "^6.3.3"
+  }
+  "devDependencies": {
     "jest": "^29.6.0",
     "jet": "^0.8.2",
     "supertest": "^6.3.3"
@@ -17,4 +20,3 @@
   "author": "",
   "license": "ISC",
   "description": ""
-}
